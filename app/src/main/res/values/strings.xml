@@ -1,0 +1,17 @@
+<resources>
+
+    <string name="back4app_server_url">https://parseapi.back4app.com/</string>
+
+    <!-- Change the following strings as required -->
+    <string name="back4app_app_id">zr8Hb7gd6Tl8fI6bsbfpTkMiqZdsVkRnvBM3x9ex</string>
+    <string name="back4app_client_key">a6kz0wVQtS7wuJsAwpvZobX9h9BzteWvvS9R4EjT</string>
+
+    <string name="app_name">Eventii</string>
+    <string name="convide_seus_amigos">Convide seus amigos</string>
+    <string name="convide_seus_amigos_text">Convide seus amigos!</string>
+    <string name="voc_pode_convidar_seus_amigos_para_sua_festa_de_arromba">Você pode convidar seus amigos para sua festa de arromba</string>
+    <string name="bem_vindo_ao_eventii">Bem-vindo ao Eventii!</string>
+    <string name="planeje_e_organize_a_festa_que_quiser_com_o_eventii">Planeje e organize a festa que quiser com o Eventii</string>
+    <string name="entre_agora">Entre agora!</string>
+    <string name="entrar">Entrar</string>
+</resources>
