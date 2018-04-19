@@ -1,23 +1,34 @@
 package br.edu.ucsal.eventii.fragments;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.util.Patterns;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.parse.ParseException;
+import com.parse.ParseObject;
 import com.parse.ParseUser;
 import com.parse.SignUpCallback;
 
-import br.edu.ucsal.eventii.R;
+import org.json.JSONArray;
 
-public class RegisterFragment extends Fragment implements View.OnClickListener{
+import java.util.ArrayList;
+
+import br.edu.ucsal.eventii.R;
+import br.edu.ucsal.eventii.activity.EventiiActivity;
+
+public class RegisterFragment extends Fragment implements View.OnClickListener, TextWatcher {
 
     private ViewPager viewPager;
 
@@ -50,6 +61,8 @@ public class RegisterFragment extends Fragment implements View.OnClickListener{
         btnRegister = rootView.findViewById(R.id.fragment_register_btnRegister);
 
 
+        editTextEmail.addTextChangedListener(this);
+
         btnRegister.setOnClickListener(this);
 
         return rootView;
@@ -64,7 +77,7 @@ public class RegisterFragment extends Fragment implements View.OnClickListener{
         String telefone = editTextTelefone.getText().toString();
         String username = editTextNome.getText().toString();
 
-        ParseUser user = new ParseUser();
+        final ParseUser user = new ParseUser();
 
         user.setEmail(email);
         user.setPassword(senha);
@@ -77,14 +90,16 @@ public class RegisterFragment extends Fragment implements View.OnClickListener{
 
                 if(e == null){
                     //Register OK
-
-                    editTextEmail.setText("Registrado com sucsso");
-
+                    //TODO:ABRE ACTIVITY REGISTER
+                    Toast.makeText(getActivity(),"Registrado com sucesso!",Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(getActivity(), EventiiActivity.class));
+                    getActivity().finish();
 
                 }else{
                     //Register NULL
 
-                    editTextEmail.setText("AZEDOU");
+                    //TODO: REGISTER DEU ERRO
+                    Toast.makeText(getActivity(),e.getMessage(),Toast.LENGTH_SHORT).show();
 
                 }
 
@@ -94,6 +109,8 @@ public class RegisterFragment extends Fragment implements View.OnClickListener{
 
     }
 
+    //LISTENER CLICK
+
     @Override
     public void onClick(View v) {
 
@@ -101,6 +118,57 @@ public class RegisterFragment extends Fragment implements View.OnClickListener{
 
             register();
 
+        }
+
+    }
+
+    //TEXT IMPLEMENTS
+
+    @Override
+    public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+    }
+
+    @Override
+    public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+    }
+
+    @Override
+    public void afterTextChanged(Editable s) {
+
+        if(!isValidEmail(editTextEmail.getText().toString())){
+
+            editTextEmail.setError("Email inválido");
+
+        }
+
+        if(!isValidPhone(editTextTelefone.getText().toString())){
+
+            editTextTelefone.setError("Telefone inválido");
+
+        }
+
+    }
+
+    //VALIDACOES
+
+    private boolean isValidEmail(String s) {
+
+        if(s == null){
+            return false;
+        }else{
+            return Patterns.EMAIL_ADDRESS.matcher(s).matches();
+        }
+
+    }
+
+    private boolean isValidPhone(String s){
+
+        if(s == null){
+            return false;
+        }else{
+            return Patterns.PHONE.matcher(s).matches();
         }
 
     }

@@ -2,55 +2,89 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@drawable/bg_fragment_invite">
 
     <TextView
+        android:id="@+id/fragment_login_logo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="ReGISTEr"/>
-
-    <EditText
-        android:id="@+id/fragment_register_textEmail"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="e-mail"
-        android:inputType="textEmailAddress"
-        android:gravity="center"
-        />
-
-    <EditText
-        android:id="@+id/fragment_register_textNome"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="nome"
-        android:inputType="text"
-        android:gravity="center"
-        />
-
-    <EditText
-        android:id="@+id/fragment_register_textTelefone"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="telefone"
-        android:inputType="phone"
-        android:gravity="center"
-        />
-
-    <EditText
-        android:id="@+id/fragment_register_textPassword"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textPassword"
-        android:hint="password"
-        android:gravity="center"/>
-
-    <Button
-        android:id="@+id/fragment_register_btnRegister"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:text="@string/app_name"
         android:layout_gravity="center"
-        android:text="Registrar"
+        android:textSize="50sp"
+        android:fontFamily="@font/montserrat"
+        android:textColor="#FFF"
+
         />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|center_vertical|center_horizontal"
+        android:layout_marginTop="60dp"
+        >
+
+        <EditText
+            android:id="@+id/fragment_register_textEmail"
+            android:background="@drawable/bg_input_form"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:hint="@string/e_mail"
+            android:inputType="textEmailAddress"
+            android:gravity="center"
+            />
+
+        <EditText
+            android:id="@+id/fragment_register_textNome"
+            android:background="@drawable/bg_input_form"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:hint="@string/nome"
+            android:inputType="text"
+            android:gravity="center"
+            android:layout_below="@id/fragment_register_textEmail"
+            android:layout_marginTop="10dp"
+            />
+
+        <EditText
+            android:id="@+id/fragment_register_textTelefone"
+            android:background="@drawable/bg_input_form"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:hint="@string/telefone"
+            android:inputType="phone"
+            android:gravity="center"
+            android:layout_below="@id/fragment_register_textNome"
+            android:layout_marginTop="10dp"
+            />
+
+        <EditText
+            android:id="@+id/fragment_register_textPassword"
+            android:background="@drawable/bg_input_form"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_below="@id/fragment_register_textTelefone"
+            android:inputType="textPassword"
+            android:hint="@string/senha"
+            android:gravity="center"
+            android:layout_marginTop="10dp"/>
+
+        <Button
+            android:id="@+id/fragment_register_btnRegister"
+            android:background="@drawable/bg_button_fragment"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/fragment_register_textPassword"
+            android:gravity="center"
+            android:text="@string/registrar"
+            android:textColor="@color/colorAccent"
+            android:layout_marginTop="30dp"/>
+
+    </RelativeLayout>
+
+
 
 
 

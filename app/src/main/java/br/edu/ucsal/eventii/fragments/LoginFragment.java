@@ -1,5 +1,6 @@
 package br.edu.ucsal.eventii.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -12,12 +13,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.parse.LogInCallback;
 import com.parse.ParseException;
 import com.parse.ParseUser;
 
 import br.edu.ucsal.eventii.R;
+import br.edu.ucsal.eventii.activity.EventiiActivity;
 
 
 public class LoginFragment extends Fragment implements View.OnClickListener{
@@ -61,32 +64,47 @@ public class LoginFragment extends Fragment implements View.OnClickListener{
 
     public void login(){
 
+        progressBar.setVisibility(View.VISIBLE);
+
         String email = editTextEmail.getText().toString();
         String senha = editTextSenha.getText().toString();
 
-        ParseUser.logInInBackground(email, senha, new LogInCallback() {
-            @Override
-            public void done(ParseUser user, ParseException e) {
+        if(email.isEmpty() && senha.isEmpty()){
 
-                if(user != null){
-                    //Logado com sucesso
+            Toast.makeText(getActivity(),"Email e senha precisam ser preenchidos",Toast.LENGTH_SHORT).show();
 
-                    editTextEmail.setText("LOGUEI");
+        }else{
 
-                } else {
-                    //Login fail
+            ParseUser.logInInBackground(email, senha, new LogInCallback() {
+                @Override
+                public void done(ParseUser user, ParseException e) {
 
-                    editTextEmail.setText("AINDA N TEM CONTA");
-                    progressBar.setVisibility(View.GONE);
+                    if(user != null){
+                        //Logado com sucesso
+
+                        //TODO: ABRIR ACTIVITY PROFILE / ANIMACAO
+                        startActivity(new Intent(getActivity(), EventiiActivity.class));
+                        getActivity().finish();
+
+                    } else {
+                        //Login fail
+
+                        progressBar.setVisibility(View.GONE);
+                        Toast.makeText(getActivity(),R.string.MENSAGEM_LOGIN_INVALIDO,Toast.LENGTH_SHORT).show();
+
+
+                    }
 
                 }
+            });
 
-            }
-        });
+        }
+
+
 
     }
 
-    private void animacaoLoading() {
+    private void animationLoading() {
 
         Animation fadeOut = AnimationUtils.loadAnimation(getContext(),R.anim.fade_out_animation);
         btnLogin.startAnimation(fadeOut);
@@ -98,8 +116,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener{
 
         if(v == btnLogin){
 
-            animacaoLoading();
-            progressBar.setVisibility(View.VISIBLE);
+            animationLoading();
             login();
 
         }

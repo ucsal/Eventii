@@ -14,4 +14,11 @@
     <string name="planeje_e_organize_a_festa_que_quiser_com_o_eventii">Planeje e organize a festa que quiser com o Eventii</string>
     <string name="entre_agora">Entre agora!</string>
     <string name="entrar">Entrar</string>
+    <string name="erro_handler">Erro Handler</string>
+    <string name="MENSAGEM_LOGIN_INVALIDO">Email ou senha incorretos</string>
+    <string name="registrar">Registrar</string>
+    <string name="senha">senha</string>
+    <string name="telefone">telefone</string>
+    <string name="nome">nome</string>
+    <string name="e_mail">e-mail</string>
 </resources>

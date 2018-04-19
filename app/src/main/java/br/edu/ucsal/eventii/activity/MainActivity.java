@@ -1,5 +1,6 @@
 package br.edu.ucsal.eventii.activity;
 
+import android.content.Intent;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
@@ -7,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.parse.Parse;
+import com.parse.ParseUser;
 
 import br.edu.ucsal.eventii.R;
 import br.edu.ucsal.eventii.adapters.ScreenSlideAdapter;
@@ -43,6 +45,18 @@ public class MainActivity extends FragmentActivity {
         }else{
             viewPager.setCurrentItem(viewPager.getCurrentItem() - 1);
         }
+
+    }
+
+    @Override
+    protected void onResume() {
+
+        if(ParseUser.getCurrentUser() != null){
+            startActivity(new Intent(this,EventiiActivity.class));
+            finish();
+        }
+
+        super.onResume();
 
     }
 }

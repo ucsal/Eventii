@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/menu_criarEvento"
+            android:title="Criar evento"
+            android:icon="@drawable/ic_criar_evento"/>
+        <item
+            android:id="@+id/menu_sair"
+            android:title="Sair"
+            android:icon="@drawable/ic_sair"/>
+    </group>
+
+</menu>
