@@ -2,6 +2,13 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <group android:checkableBehavior="single">
+
+        <item
+            android:title="Inicio"
+            android:icon="@drawable/ic_home"
+            android:id="@+id/menu_home"
+            />
+
         <item
             android:id="@+id/menu_criarEvento"
             android:title="Criar evento"

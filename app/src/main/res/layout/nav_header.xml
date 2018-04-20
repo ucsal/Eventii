@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/nav_header"
     android:layout_width="match_parent"
     android:layout_height="192dp"
     android:background="@drawable/bg_fragment_invite"
@@ -8,10 +9,34 @@
     android:orientation="vertical"
     android:gravity="bottom">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="NavDrawner"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
+
+    <de.hdodenhof.circleimageview.CircleImageView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/nav_header_profile_image"
+            android:layout_width="105dp"
+            android:layout_height="105dp"
+            android:layout_gravity="center"
+            android:src="@color/colorAccent"
+            app:civ_border_width="2dp"
+            app:civ_border_color="@color/colorAccent" />
+
+        <TextView
+            android:id="@+id/nav_header_username"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Username"
+            android:textSize="15dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
+
+        <TextView
+            android:id="@+id/nav_header_telefone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="15dp"
+            android:text="Telefone"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
+
+
+
 
 </LinearLayout>

@@ -15,10 +15,11 @@
     <string name="entre_agora">Entre agora!</string>
     <string name="entrar">Entrar</string>
     <string name="erro_handler">Erro Handler</string>
-    <string name="MENSAGEM_LOGIN_INVALIDO">Email ou senha incorretos</string>
+    <string name="MENSAGEM_LOGIN_INVALIDO">Usuário ou senha incorretos</string>
     <string name="registrar">Registrar</string>
     <string name="senha">senha</string>
     <string name="telefone">telefone</string>
     <string name="nome">nome</string>
     <string name="e_mail">e-mail</string>
+    <string name="ainda_n_o_h_eventos_para_serem_gerenciados_crie_um_agora">Ainda não há Eventos para serem gerenciados, Crie um agora!</string>
 </resources>

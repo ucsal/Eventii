@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="@dimen/toolbar_margin"
+    android:id="@+id/fragment_home_swiperefresh">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ListView
+                android:id="@+id/fragment_home_listaEventos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="invisible">
+
+            </ListView>
+
+            <TextView
+                android:id="@+id/fragment_home_textViewNoEvents"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="90dp"
+                android:gravity="center"
+                android:visibility="visible"
+                android:textSize="20sp"
+                android:fontFamily="@font/montserrat"
+                android:text="@string/ainda_n_o_h_eventos_para_serem_gerenciados_crie_um_agora"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+
+
+
+
+
+</android.support.v4.widget.SwipeRefreshLayout>

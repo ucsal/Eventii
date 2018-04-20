@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_marginTop="@dimen/toolbar_margin"
+    android:background="@drawable/bg_fragment_invite">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        android:layout_marginTop="70dp">
+
+        <EditText
+            android:id="@+id/fragment_cria_editTextNomeEvento"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:background="@drawable/bg_input_form"
+            android:fontFamily="@font/montserrat_alternates"
+            android:gravity="center"
+            android:hint="Nome do evento"
+            android:textColor="@color/colorAccent"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/fragment_cria_editTextData"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/bg_input_form"
+            android:fontFamily="@font/montserrat_alternates"
+            android:gravity="center"
+            android:hint="Escolha a data"
+            android:inputType="date"
+            android:textColor="@color/colorAccent"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/fragment_cria_editTextlocal"
+            android:layout_width="300dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/bg_input_form"
+            android:ems="10"
+            android:fontFamily="@font/montserrat_alternates"
+            android:gravity="center"
+            android:hint="Escolha o local"
+            android:inputType="textPostalAddress"
+            android:textAlignment="center"
+            android:textColor="@color/colorAccent"
+            android:textSize="14sp" />
+
+        <CheckBox
+            android:id="@+id/fragment_cria_listaCompras"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:buttonTint="@color/colorAccent"
+            android:checked="false"
+            android:contentDescription="Ative para seu evento ter lista de compras"
+            android:fontFamily="@font/montserrat"
+            android:text="Lista de compras"
+            android:textAlignment="textStart"
+            android:textColor="@color/colorAccent"
+            android:textSize="18sp" />
+
+        <CheckBox
+            android:id="@+id/fragment_cria_playlist"
+            android:layout_width="match_parent"
+            android:layout_marginTop="15dp"
+            android:layout_height="wrap_content"
+            android:buttonTint="@color/colorAccent"
+            android:checked="false"
+            android:contentDescription="Ative para seu evento ter playlist!"
+            android:fontFamily="@font/montserrat"
+            android:text="Playlist"
+            android:textAlignment="textStart"
+            android:textColor="@color/colorAccent"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/fragment_cria_btnCriaEvento"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:background="@drawable/bg_button_fragment"
+            android:text="Criar evento!"
+            android:textAllCaps="false"
+            android:textColor="@color/colorAccent"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+
+</LinearLayout>

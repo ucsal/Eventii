@@ -1,5 +1,6 @@
 package br.edu.ucsal.eventii.fragments;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -32,7 +33,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener{
     private EditText editTextSenha;
     private Button btnLogin;
 
-    private ProgressBar progressBar;
+    private ProgressDialog progressDialog;
 
     @Nullable
     @Override
@@ -47,14 +48,11 @@ public class LoginFragment extends Fragment implements View.OnClickListener{
 
         btnLogin = rootView.findViewById(R.id.fragment_login_btnLogin);
 
-        progressBar = rootView.findViewById(R.id.fragment_login_progressBar);
-
-
+        progressDialog = new ProgressDialog(getContext(),R.style.AppCompatAlertDialogStyle);
         //Animacao logo
 
         Animation fadeIn = AnimationUtils.loadAnimation(getContext(),R.anim.fade_in_animation);
         logo.setAnimation(fadeIn);
-
 
         btnLogin.setOnClickListener(this);
 
@@ -64,15 +62,13 @@ public class LoginFragment extends Fragment implements View.OnClickListener{
 
     public void login(){
 
-        progressBar.setVisibility(View.VISIBLE);
-
         String email = editTextEmail.getText().toString();
         String senha = editTextSenha.getText().toString();
 
         if(email.isEmpty() && senha.isEmpty()){
 
             Toast.makeText(getActivity(),"Email e senha precisam ser preenchidos",Toast.LENGTH_SHORT).show();
-
+            progressDialog.dismiss();
         }else{
 
             ParseUser.logInInBackground(email, senha, new LogInCallback() {
@@ -89,9 +85,8 @@ public class LoginFragment extends Fragment implements View.OnClickListener{
                     } else {
                         //Login fail
 
-                        progressBar.setVisibility(View.GONE);
                         Toast.makeText(getActivity(),R.string.MENSAGEM_LOGIN_INVALIDO,Toast.LENGTH_SHORT).show();
-
+                        progressDialog.dismiss();
 
                     }
 
@@ -100,15 +95,12 @@ public class LoginFragment extends Fragment implements View.OnClickListener{
 
         }
 
-
-
     }
 
     private void animationLoading() {
 
-        Animation fadeOut = AnimationUtils.loadAnimation(getContext(),R.anim.fade_out_animation);
-        btnLogin.startAnimation(fadeOut);
-
+        progressDialog.setMessage("Entrando");
+        progressDialog.show();
     }
 
     @Override
