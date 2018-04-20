@@ -40,7 +40,7 @@
             android:background="@drawable/bg_input_form"
             android:layout_width="300dp"
             android:layout_height="50dp"
-            android:hint="@string/nome"
+            android:hint="nome de usuario"
             android:inputType="text"
             android:gravity="center"
             android:layout_below="@id/fragment_register_textEmail"
